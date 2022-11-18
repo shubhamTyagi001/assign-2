@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const[sum,setSum] = useState(0);
+  const[num,setnum] = useState(1000000000000000);
+  function change(e){
+     let val = e.target.value;
+     setnum(val)
+  }
+ function update(){
+  if(num>0){
+    let count =0;
+    for(let i=1;i<=num;i++){
+      count+=i;
+    }
+    
+    setSum(count)
+    setnum(' ');
+  }
+ }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>Sum-{sum}</h1>
+     <input type='number' onChange={change}/><br/>
+     <p>{(num>=1)?<span></span>:<span>pelase enter number greater than 0</span>}</p>
+     <button onClick={update}>calculate sum</button>
     </div>
   );
 }
