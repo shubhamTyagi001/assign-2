@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
   const[sum,setSum] = useState(0);
-  const[num,setnum] = useState(1000000000000000);
+  const[num,setnum] = useState();
   function change(e){
      let val = e.target.value;
      setnum(val)
